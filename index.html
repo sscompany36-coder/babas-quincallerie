@@ -244,7 +244,7 @@ footer span {color:var(--gold)}
   Building your future, one project at a time.<br>
   Rugerero, Rubavu, Rwanda<br>
   <span>© 2026 BABA'S QUINCALLERIE. All rights reserved.</span>
-  <p style="margin-top:12px"><a href="#adminSection" style="color:#fff">Administrator</a></p>
+  <p style="margin-top:12px"><a href="#adminSection" onclick="openAdmin()" style="color:#fff">Administrator Login</a>></p>
 </footer>
 
 <div class="overlay" id="overlay" onclick="closeCart()"></div>
@@ -670,7 +670,7 @@ async function deleteProduct(id,name) {
   await loadProducts();
 }
 
-async function start() {
+window.openAdmin = function() {   const section = document.getElementById('adminSection');   section.classList.add('show');   section.scrollIntoView({ behavior: 'smooth' }); };  async function start() {
   buildCategories();
   renderCart();
   await loadProducts();
