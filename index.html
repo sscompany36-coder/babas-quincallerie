@@ -4,607 +4,699 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#062653">
-<title>BABA'S QUINCALLERIE | Build Better. Live Better.</title>
-
+<title>BABA'S QUINCALLERIE | Rugerero, Rubavu</title>
+<meta name="description" content="BABA'S QUINCALLERIE - Building and construction materials in Rugerero, Rubavu, Rwanda.">
 <style>
 :root {
---navy:#062653;
---blue:#0b3d78;
---gold:#ffc400;
---ink:#14233d;
---muted:#66758b;
---paper:#f5f8fc;
---white:#fff;
+  --navy:#101d35;
+  --navy2:#1b2d4c;
+  --gold:#e8ad36;
+  --light:#f5f6f8;
+  --white:#fff;
+  --text:#202b3c;
+  --muted:#6b7280;
+  --green:#16834b;
 }
-
-* {box-sizing:border-box}
-body {
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-color:var(--ink);
-background:var(--paper);
-}
-a {color:inherit;text-decoration:none}
-button,input,select {font:inherit}
-button {cursor:pointer;border:0}
-
-.top {
-background:#031b3b;color:white;
-padding:9px 4%;
-display:flex;justify-content:space-between;
-gap:12px;flex-wrap:wrap;font-size:14px;
-}
-
-header {
-background:white;padding:15px 4%;
-display:flex;align-items:center;
-gap:20px;justify-content:space-between;
-flex-wrap:wrap;
-}
-
-.brand {
-font-size:27px;font-weight:900;
-color:var(--navy);letter-spacing:-1px;
-}
-.brand span {color:#e6a900}
-.tag {font-size:12px;color:var(--muted);font-weight:600}
-
-.search {
-display:flex;flex:1;max-width:520px;min-width:220px;
-}
-.search input {
-width:100%;padding:13px;
-border:1px solid #b8c7dc;
-border-radius:9px 0 0 9px;
-}
-.search button,.primary {
-background:var(--gold);color:#111;
-font-weight:800;padding:13px 18px;
-border-radius:0 9px 9px 0;
-}
-
-nav {
-background:var(--navy);color:white;
-padding:0 4%;display:flex;gap:5px;
-align-items:center;flex-wrap:wrap;
-}
-nav button {
-background:transparent;color:white;
-padding:15px 17px;font-weight:700;
-}
-nav button:hover {background:#164477}
-nav .right {margin-left:auto}
-
-.hero {
-background:
-linear-gradient(100deg,rgba(2,24,55,.97),rgba(4,48,96,.78)),
-url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85')
-center/cover;
-color:white;padding:65px 5%;
-min-height:350px;display:flex;align-items:center;
-}
-.hero-inner {max-width:680px}
-.hero h1 {
-font-size:clamp(34px,5vw,58px);
-line-height:1.04;margin:0 0 14px;
-}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {font-family:Arial,sans-serif;background:var(--light);color:var(--text)}
+button,input,select,textarea {font:inherit}
+button {cursor:pointer}
+.topbar {background:#0a1426;color:#fff;padding:9px 5%;font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header {background:var(--navy);color:#fff;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.logo {font-size:22px;font-weight:900;color:var(--gold)}
+.logo small {display:block;color:#fff;font-size:11px;letter-spacing:2px;margin-top:4px}
+.header-actions {display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn {border:0;border-radius:7px;padding:11px 17px;font-weight:bold}
+.btn-gold {background:var(--gold);color:#17243a}
+.btn-outline {background:transparent;color:#fff;border:1px solid #8290a6}
+.btn-dark {background:var(--navy);color:#fff}
+.btn-green {background:var(--green);color:#fff}
+nav {background:var(--navy2);padding:13px 5%;display:flex;gap:25px;flex-wrap:wrap}
+nav a {color:white;text-decoration:none;font-weight:bold;font-size:14px}
+nav a:hover {color:var(--gold)}
+.hero {background:linear-gradient(110deg,rgba(10,20,38,.96),rgba(16,29,53,.82)),linear-gradient(45deg,#263c5b,#17243a);color:white;padding:85px 7%;min-height:370px;display:flex;align-items:center}
+.hero-content {max-width:720px}
+.hero h1 {font-size:clamp(32px,5vw,55px);line-height:1.12;margin-bottom:18px}
 .hero h1 span {color:var(--gold)}
-.hero p {font-size:21px;line-height:1.5}
-.hero ul {padding-left:20px;line-height:1.9;font-weight:700}
-.hero .primary {border-radius:30px;padding:15px 24px}
-
-main {max-width:1300px;margin:auto;padding:28px 4%}
-.section-head {
-display:flex;justify-content:space-between;
-align-items:center;gap:12px;flex-wrap:wrap;
-}
-.section-head h2 {margin:0 0 17px;color:var(--navy)}
-
-.categories {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
-gap:12px;margin-bottom:30px;
-}
-.cat {
-background:white;border:1px solid #d7e1ee;
-border-radius:12px;padding:17px 10px;
-text-align:center;font-weight:800;color:var(--navy);
-box-shadow:0 3px 10px #092b5010;
-}
-.cat .emoji {display:block;font-size:34px;margin-bottom:8px}
-
-.products {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(205px,1fr));
-gap:16px;
-}
-.product {
-background:white;border:1px solid #dce5ef;
-border-radius:13px;overflow:hidden;
-box-shadow:0 4px 12px #092b500d;
-display:flex;flex-direction:column;
-}
-.product .pic {
-height:135px;background:linear-gradient(135deg,#e8f0fa,#cddced);
-display:grid;place-items:center;font-size:54px;
-}
-.product .info {
-padding:14px;display:flex;
-flex-direction:column;gap:8px;flex:1;
-}
-.product h3 {margin:0;color:var(--navy);font-size:17px}
-.product p {margin:0;color:var(--muted);font-size:13px;line-height:1.4}
-.price {font-weight:900;color:#b17b00}
-.product button {
-background:var(--navy);color:white;
-padding:11px;border-radius:8px;font-weight:700;
-}
-
-.features {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-gap:12px;margin:30px 0;
-}
-.feature {
-background:#e8f1fc;border-radius:10px;
-padding:18px;font-weight:800;color:var(--navy);
-}
-
-.contact {
-background:var(--navy);color:white;
-padding:24px;border-radius:14px;
-display:flex;align-items:center;
-justify-content:space-between;gap:18px;flex-wrap:wrap;
-}
-.contact strong {color:var(--gold);font-size:22px}
-
-footer {
-background:#031b3b;color:white;
-padding:24px 4%;text-align:center;margin-top:25px;
-}
-
-.panel {
-background:white;border:1px solid #dce5ef;
-padding:18px;border-radius:12px;margin:18px 0;
-}
+.hero p {font-size:17px;line-height:1.7;color:#e2e8f0;margin-bottom:25px}
+.hero-buttons {display:flex;gap:12px;flex-wrap:wrap}
+section {padding:55px 5%}
+.section-heading {text-align:center;margin-bottom:30px}
+.section-heading h2 {font-size:30px;color:var(--navy);margin-bottom:9px}
+.section-heading p {color:var(--muted)}
+.categories {display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px}
+.category {background:white;padding:20px 12px;border-radius:10px;text-align:center;border:1px solid #e5e7eb;cursor:pointer;transition:.2s}
+.category:hover,.category.active {border-color:var(--gold);transform:translateY(-3px);box-shadow:0 5px 18px #17243a15}
+.category .emoji {font-size:30px;margin-bottom:10px}
+.category strong {font-size:14px}
+.shop-section {background:#fff}
+.shop-tools {display:flex;gap:12px;flex-wrap:wrap;margin-bottom:25px}
+.shop-tools input,.shop-tools select {padding:12px;border:1px solid #d1d5db;border-radius:7px;min-width:180px;flex:1}
+.product-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.product {background:white;border:1px solid #e5e7eb;border-radius:11px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.product:hover {transform:translateY(-3px);box-shadow:0 8px 22px #17243a15}
+.product-image {height:165px;background:#edf0f4;display:flex;align-items:center;justify-content:center;font-size:54px;overflow:hidden}
+.product-image img {width:100%;height:100%;object-fit:cover}
+.product-info {padding:16px;display:flex;flex-direction:column;gap:9px;flex:1}
+.product-info h3 {color:var(--navy);font-size:17px}
+.product-info p {font-size:13px;color:var(--muted);line-height:1.5}
+.price {font-size:19px;font-weight:900;color:#b47a12}
+.stock {font-size:12px;color:var(--green)}
+.out-stock {color:#c0392b}
+.product-info button {margin-top:auto}
+.features {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.feature {background:white;padding:24px;border-radius:10px;text-align:center}
+.feature .emoji {font-size:32px;margin-bottom:10px}
+.feature h3 {color:var(--navy);margin-bottom:8px}
+.feature p {font-size:14px;color:var(--muted);line-height:1.5}
+.about {background:#eef1f5}
+.about-content {max-width:850px;margin:auto;text-align:center;line-height:1.8}
+.contact-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.contact-card {background:white;padding:22px;border-radius:10px}
+.contact-card h3 {margin-bottom:9px;color:var(--navy)}
+.contact-card p {color:var(--muted);line-height:1.6}
+footer {background:var(--navy);color:white;padding:30px 5%;text-align:center;line-height:1.8}
+footer span {color:var(--gold)}
+.overlay {display:none;position:fixed;inset:0;background:#0008;z-index:20}
+.overlay.show {display:block}
+.drawer {position:fixed;right:-430px;top:0;height:100%;width:min(420px,95%);background:white;z-index:21;padding:22px;overflow-y:auto;transition:.3s}
+.drawer.show {right:0}
+.drawer-head {display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.close {border:0;background:#eee;border-radius:6px;padding:8px 12px}
+.cart-item {display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #eee}
+.cart-item small {display:block;color:var(--muted);margin-top:5px}
+.cart-total {font-size:21px;font-weight:bold;margin:22px 0}
+.admin-area {display:none;background:#edf1f6;padding:35px 5%}
+.admin-area.show {display:block}
+.admin-box {background:white;padding:22px;border-radius:10px;max-width:1000px;margin:auto}
+.admin-box h2 {color:var(--navy);margin-bottom:18px}
+.admin-form {display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:20px 0}
+.admin-form input,.admin-form select,.admin-form textarea,.login-form input {width:100%;padding:12px;border:1px solid #ccd2dc;border-radius:6px}
+.admin-form textarea {min-height:75px;grid-column:1/-1}
+.admin-list {margin-top:25px}
+.admin-row {padding:13px 0;border-bottom:1px solid #e5e7eb;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.admin-row input {width:100px;padding:8px;border:1px solid #ccc;border-radius:5px}
+.admin-row button {padding:8px 10px}
+.login-form {max-width:400px;margin:25px auto;display:grid;gap:12px}
+.notice {padding:12px;border-radius:7px;background:#fff4d8;color:#684b0b;margin:12px 0;font-size:14px}
+.error {color:#bd2929;font-size:14px}
+.success {color:var(--green);font-size:14px}
+.empty {padding:35px;text-align:center;color:var(--muted);grid-column:1/-1}
 .hidden {display:none!important}
-.row {display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.row input,.row select {
-padding:10px;border:1px solid #bac8d9;border-radius:8px;
-}
-.pill {background:#edf3fa;border-radius:30px;padding:8px 12px;font-weight:700}
-.cartline {
-display:flex;justify-content:space-between;
-gap:12px;border-bottom:1px solid #e4eaf2;padding:10px 0;
-}
-.secondary {
-background:#e7eef8;color:var(--navy);
-padding:10px 14px;border-radius:8px;font-weight:700;
-}
-.danger {background:#ffe9e9;color:#9d2020;padding:9px 12px}
-.notice {font-size:13px;color:var(--muted);line-height:1.5}
-
-@media(max-width:650px) {
-header {gap:12px}
-.brand {font-size:22px}
-.hero {padding:45px 6%}
-.hero p {font-size:17px}
-nav button {padding:12px 9px;font-size:13px}
-main {padding:22px 4%}
+@media(max-width:600px) {
+  header {padding:16px 4%}
+  nav {gap:15px;padding:13px 4%}
+  .hero {padding:60px 6%}
+  section {padding:42px 4%}
+  .topbar {padding:9px 4%}
 }
 </style>
 </head>
-
 <body>
 
-<div class="top">
-<span>📍 Rugerero, Rubavu – Rwanda</span>
-<span>☎ +250 796 000 275</span>
-<span>🇷🇼 English / Kinyarwanda</span>
+<div class="topbar">
+  <span>📍 Rugerero, Rubavu, Rwanda</span>
+  <span>📞 +250 796 000 275</span>
 </div>
 
 <header>
-<div>
-<div class="brand">BABA'S <span>QUINCALLERIE</span></div>
-<div class="tag">BUILD BETTER. LIVE BETTER.</div>
-</div>
-
-<div class="search">
-<input id="search" placeholder="Search for products..." aria-label="Search products">
-<button onclick="renderProducts()">⌕</button>
-</div>
-
-<button class="secondary" onclick="showCart()">
-🛒 <span id="cartCount">0</span> · <span id="cartTotal">RWF 0</span>
-</button>
+  <div class="logo">BABA'S QUINCALLERIE<small>BUILDING YOUR FUTURE</small></div>
+  <div class="header-actions">
+    <button class="btn btn-outline" onclick="toggleLanguage()" id="languageBtn">Kinyarwanda</button>
+    <button class="btn btn-gold" onclick="openCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
+  </div>
 </header>
 
 <nav>
-<button onclick="scrollTo({top:0,behavior:'smooth'})">Home</button>
-<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Our Products</button>
-<button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About Us</button>
-<button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
-<button class="right" onclick="openAdmin()">Admin Login</button>
-<button onclick="toggleLanguage()" id="langButton">Kinyarwanda</button>
+  <a href="#home" data-en="Home" data-rw="Ahabanza">Home</a>
+  <a href="#categories" data-en="Categories" data-rw="Ibyiciro">Categories</a>
+  <a href="#shop" data-en="Our Products" data-rw="Ibicuruzwa">Our Products</a>
+  <a href="#about" data-en="About Us" data-rw="Abo Turi Bo">About Us</a>
+  <a href="#contact" data-en="Contact" data-rw="Twandikire">Contact</a>
 </nav>
 
-<section class="hero">
-<div class="hero-inner">
-<h1>BABA'S <span>QUINCALLERIE</span></h1>
-
-<p data-en="Your trusted hardware store in Rugerero, Rubavu – Rwanda."
-data-rw="Iduka ryanyu ryizewe ry'ibikoresho by'ubwubatsi i Rugerero, Rubavu – Rwanda.">
-Your trusted hardware store in Rugerero, Rubavu – Rwanda.
-</p>
-
-<ul>
-<li data-en="Quality building materials" data-rw="Ibikoresho by'ubwubatsi byiza">Quality building materials</li>
-<li data-en="Competitive prices" data-rw="Ibiciro byiza">Competitive prices</li>
-<li data-en="Fast and reliable service" data-rw="Serivisi yihuse kandi yizewe">Fast and reliable service</li>
-</ul>
-
-<button class="primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
-Shop Now →
-</button>
-</div>
-</section>
-
 <main>
-
-<section id="shop">
-<div class="section-head">
-<h2 data-en="Shop by Category" data-rw="Hitamo Icyiciro">Shop by Category</h2>
-<span class="pill" id="productCount">11 categories</span>
-</div>
-
-<div class="categories" id="categories"></div>
-
-<div class="section-head">
-<h2 data-en="Featured Products" data-rw="Ibicuruzwa By'ingenzi">Featured Products</h2>
-<span class="notice">Prices confirmed by the shop</span>
-</div>
-
-<div class="products" id="products"></div>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1 id="heroTitle">BUILD STRONGER.<br><span>BUILD BETTER.</span></h1>
+    <p id="heroText">Your trusted destination for quality building and construction materials in Rugerero, Rubavu. Everything you need to build your future.</p>
+    <div class="hero-buttons">
+      <a href="#shop"><button class="btn btn-gold" id="shopNow">Explore Products</button></a>
+      <a href="https://wa.me/250796000275" target="_blank"><button class="btn btn-outline">WhatsApp Us</button></a>
+    </div>
+  </div>
 </section>
 
-<section id="about">
-<h2 data-en="Why Choose BABA'S QUINCALLERIE?"
-data-rw="Kuki Wahitamo BABA'S QUINCALLERIE?">
-Why Choose BABA'S QUINCALLERIE?
-</h2>
-
-<div class="features">
-<div class="feature">🏅 <span data-en="Quality products" data-rw="Ibicuruzwa byiza">Quality products</span></div>
-<div class="feature">🏷️ <span data-en="Competitive prices" data-rw="Ibiciro biboneye">Competitive prices</span></div>
-<div class="feature">🚚 <span data-en="Delivery in Rwanda" data-rw="Gutanga ibicuruzwa mu Rwanda">Delivery in Rwanda</span></div>
-<div class="feature">🎧 <span data-en="Customer support" data-rw="Gufasha abakiriya">Customer support</span></div>
-</div>
+<section id="categories">
+  <div class="section-heading">
+    <h2 id="categoryTitle">Shop by Category</h2>
+    <p id="categorySubtitle">Find the materials you need for your project.</p>
+  </div>
+  <div class="categories" id="categoryGrid"></div>
 </section>
 
-<section class="contact" id="contact">
-<div>
-<h2 data-en="Need help with your project?" data-rw="Ukeneye ubufasha ku mushinga wawe?">
-Need help with your project?
-</h2>
-<div>WhatsApp / Call</div>
-<strong>+250 796 000 275</strong>
-</div>
-<a class="primary" style="border-radius:9px"
-href="https://wa.me/250796000275" target="_blank" rel="noopener">
-Chat on WhatsApp
-</a>
+<section class="shop-section" id="shop">
+  <div class="section-heading">
+    <h2 id="productsTitle">Our Products</h2>
+    <p id="productsSubtitle">Quality materials for every construction project.</p>
+  </div>
+  <div class="shop-tools">
+    <input id="searchInput" type="search" placeholder="Search products..." oninput="renderProducts()">
+    <select id="categoryFilter" onchange="renderProducts()">
+      <option value="all">All Categories</option>
+    </select>
+  </div>
+  <div id="loadingMessage" class="empty">Loading products...</div>
+  <div class="product-grid" id="productGrid"></div>
 </section>
 
-<div id="cartPanel" class="panel hidden">
-<div class="section-head">
-<h2>Your Cart / Igitebo</h2>
-<button class="secondary" onclick="hideCart()">Close</button>
-</div>
+<section>
+  <div class="section-heading">
+    <h2 id="whyTitle">Why Choose Us?</h2>
+    <p id="whySubtitle">Your project deserves quality and reliability.</p>
+  </div>
+  <div class="features">
+    <div class="feature"><div class="emoji">🏗️</div><h3>Quality Materials</h3><p>Building materials selected to support strong and reliable construction.</p></div>
+    <div class="feature"><div class="emoji">🤝</div><h3>Customer Care</h3><p>We are ready to help you find the right materials for your project.</p></div>
+    <div class="feature"><div class="emoji">📍</div><h3>Local Business</h3><p>Proudly serving customers in Rugerero, Rubavu and surrounding areas.</p></div>
+  </div>
+</section>
 
-<div id="cartLines"></div>
+<section class="about" id="about">
+  <div class="section-heading"><h2 id="aboutTitle">About BABA'S QUINCALLERIE</h2></div>
+  <div class="about-content">
+    <p id="aboutText">BABA'S QUINCALLERIE is a building and construction materials shop located in Rugerero, Rubavu, Rwanda. Our goal is to help builders, homeowners and contractors find the materials they need for their projects.</p>
+  </div>
+</section>
 
-<div class="row" style="justify-content:space-between;margin-top:15px">
-<strong id="cartGrand">Total: RWF 0</strong>
-<button class="primary" style="border-radius:8px" onclick="checkout()">
-Order on WhatsApp
-</button>
-</div>
+<section id="contact">
+  <div class="section-heading">
+    <h2 id="contactTitle">Get in Touch</h2>
+    <p id="contactSubtitle">We would love to hear from you.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card"><h3>📍 Location</h3><p>Rugerero, Rubavu<br>Western Province, Rwanda</p></div>
+    <div class="contact-card"><h3>📞 Phone / WhatsApp</h3><p>+250 796 000 275</p><a href="https://wa.me/250796000275" target="_blank">Chat with us</a></div>
+    <div class="contact-card"><h3>🕒 Business</h3><p>Contact us for product availability and assistance.</p></div>
+  </div>
+</section>
 
-<p class="notice">
-Online payment options will be connected after the shop's payment provider and merchant account are confirmed.
-</p>
-</div>
+<section id="adminSection" class="admin-area">
+  <div class="admin-box">
+    <h2>🔐 Shop Administration</h2>
+    <div id="loginArea">
+      <p>Sign in with your existing shop administrator account.</p>
+      <form class="login-form" onsubmit="login(event)">
+        <input id="adminEmail" type="email" placeholder="Administrator email" required>
+        <input id="adminPassword" type="password" placeholder="Password" required>
+        <button class="btn btn-gold" type="submit" id="loginButton">Login</button>
+        <p id="loginError" class="error"></p>
+      </form>
+    </div>
 
-<div id="adminPanel" class="panel hidden">
-<div class="section-head">
-<h2>Admin Dashboard</h2>
-<button class="secondary" onclick="closeAdmin()">Close</button>
-</div>
-
-<div id="loginArea">
-<p>Sign in to manage the product catalogue on this demo.</p>
-<div class="row">
-<input id="adminUser" placeholder="Username">
-<input id="adminPass" type="password" placeholder="Password">
-<button class="primary" style="border-radius:8px" onclick="login()">Sign in</button>
-</div>
-<p class="notice">
-Demo login: <b>admin</b> / <b>BabaDemo2026!</b>.
-This prototype login is not secure for a live store.
-</p>
-<p id="loginError" style="color:#a22"></p>
-</div>
-
-<div id="dashboard" class="hidden">
-<p class="pill">Signed in as admin</p>
-<h3>Add a product</h3>
-
-<div class="row">
-<input id="newName" placeholder="Product name">
-<input id="newPrice" type="number" min="0" placeholder="Price in RWF">
-<input id="newEmoji" placeholder="Icon e.g. 🧱" style="width:100px">
-<button class="primary" style="border-radius:8px" onclick="addProduct()">Add</button>
-</div>
-
-<h3>Catalogue</h3>
-<div id="adminProducts"></div>
-<button class="secondary" onclick="logout()">Log out</button>
-</div>
-</div>
-
+    <div id="dashboard" class="hidden">
+      <p class="success">Administrator authenticated.</p>
+      <button class="btn btn-outline btn-dark" onclick="logout()">Log out</button>
+      <h3 style="margin-top:25px">Add a New Product</h3>
+      <form class="admin-form" onsubmit="addProduct(event)">
+        <input id="productName" placeholder="Product name" required>
+        <select id="productCategory" required></select>
+        <input id="productPrice" type="number" min="0" step="1" placeholder="Price in RWF" required>
+        <input id="productStock" type="number" min="0" step="1" placeholder="Stock quantity" required>
+        <input id="productImage" type="url" placeholder="Product image URL (optional)">
+        <textarea id="productDescription" placeholder="Product description"></textarea>
+        <button class="btn btn-gold" type="submit">Add Product</button>
+      </form>
+      <p id="adminMessage"></p>
+      <div class="admin-list">
+        <h3>Manage Products</h3>
+        <p style="color:#6b7280;font-size:13px;margin:8px 0">Update the price or stock, then press Save. You can also delete products.</p>
+        <div id="adminProductList"></div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
-© <span id="year"></span> BABA'S QUINCALLERIE · Rugerero, Rubavu, Rwanda · +250 796 000 275
+  <strong>BABA'S QUINCALLERIE</strong><br>
+  Building your future, one project at a time.<br>
+  Rugerero, Rubavu, Rwanda<br>
+  <span>© 2026 BABA'S QUINCALLERIE. All rights reserved.</span>
+  <p style="margin-top:12px"><a href="#adminSection" style="color:#fff">Administrator</a></p>
 </footer>
 
-<script>
-const initialProducts = [
-{id:1,name:'Cement',rw:'Sima',cat:'Cement',emoji:'🧱',price:0},
-{id:2,name:'Iron & Steel',rw:'Ibyuma',cat:'Steel',emoji:'🔩',price:0},
-{id:3,name:'Bricks',rw:'Amatafari',cat:'Bricks',emoji:'🧱',price:0},
-{id:4,name:'Sand',rw:'Umucanga',cat:'Sand',emoji:'⛰️',price:0},
-{id:5,name:'Gravel',rw:'Amabuye',cat:'Gravel',emoji:'🪨',price:0},
-{id:6,name:'Roofing Sheets',rw:'Amabati',cat:'Roofing',emoji:'🏠',price:0},
-{id:7,name:'Pipes',rw:'Imiyoboro',cat:'Pipes',emoji:'🪠',price:0},
-{id:8,name:'Paints',rw:'Amarangi',cat:'Paint',emoji:'🪣',price:0},
-{id:9,name:'Tiles',rw:'Amakaro',cat:'Tiles',emoji:'◻️',price:0},
-{id:10,name:'Tools',rw:'Ibikoresho',cat:'Tools',emoji:'🔨',price:0},
-{id:11,name:'Electrical Materials',rw:'Ibikoresho by’amashanyarazi',cat:'Electrical',emoji:'💡',price:0}
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="drawer" id="cartDrawer">
+  <div class="drawer-head"><h2>Your Cart</h2><button class="close" onclick="closeCart()">✕</button></div>
+  <div id="cartItems"></div>
+  <div class="cart-total">Total: <span id="cartTotal">0 RWF</span></div>
+  <button class="btn btn-green" style="width:100%" onclick="checkout()">Order on WhatsApp</button>
+  <p style="font-size:12px;color:#6b7280;margin-top:12px">Your order will be sent to our WhatsApp for confirmation.</p>
+</aside>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+const SUPABASE_URL = 'https://iaxqvxeqjndrdwcdysdh.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlheHF2eGVxam5kcmR3Y2R5c2RoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUxMDM0MzgsImV4cCI6MjExMDY3OTQzOH0.4FE6BxnruF_B1KFTRdmGZnsCnxVG4tFCIV5eUc1rGfA';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+window.supabase = supabase;
+
+const categories = [
+  {id:'Cement',emoji:'🧱',rw:'Sima'},
+  {id:'Steel & Metal',emoji:'🔩',rw:'Ibyuma'},
+  {id:'Roofing',emoji:'🏠',rw:'Ibikoresho byo gusakara'},
+  {id:'Plumbing',emoji:'🚰',rw:'Ibikoresho by’amazi'},
+  {id:'Electrical',emoji:'💡',rw:'Ibikoresho by’amashanyarazi'},
+  {id:'Paint',emoji:'🎨',rw:'Irangi'},
+  {id:'Tiles',emoji:'◻️',rw:'Amatafari yo hasi'},
+  {id:'Tools',emoji:'🔨',rw:'Ibikoresho by’akazi'},
+  {id:'Doors & Windows',emoji:'🚪',rw:'Inzugi n’amadirishya'},
+  {id:'Timber',emoji:'🪵',rw:'Ibiti'},
+  {id:'Sanitary',emoji:'🚿',rw:'Ibikoresho by’ubwiherero'}
 ];
 
-let products = JSON.parse(localStorage.getItem('babaProducts') || 'null') || initialProducts;
-let cart = JSON.parse(localStorage.getItem('babaCart') || '{}');
-let lang = 'en';
-let activeCat = '';
+let products = [];
+let cart = JSON.parse(localStorage.getItem('babaCart') || '[]');
+let activeCategory = 'all';
+let language = 'en';
+let currentAdmin = null;
 
-function save() {
-localStorage.setItem('babaProducts',JSON.stringify(products));
-localStorage.setItem('babaCart',JSON.stringify(cart));
+const money = amount => new Intl.NumberFormat('en-RW').format(Number(amount || 0)) + ' RWF';
+const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({
+  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+}[c]));
+
+function categoryEmoji(category) {
+  return categories.find(c => c.id === category)?.emoji || '📦';
 }
 
-function money(n) {
-return 'RWF ' + Number(n || 0).toLocaleString('en-US');
+function buildCategories() {
+  const grid = document.getElementById('categoryGrid');
+  const filter = document.getElementById('categoryFilter');
+  const adminFilter = document.getElementById('productCategory');
+
+  grid.innerHTML = '';
+  filter.innerHTML = '<option value="all">All Categories</option>';
+  adminFilter.innerHTML = '';
+
+  categories.forEach(c => {
+    const name = language === 'rw' ? c.rw : c.id;
+    const card = document.createElement('div');
+    card.className = 'category' + (activeCategory === c.id ? ' active' : '');
+    card.innerHTML = `<div class="emoji">${c.emoji}</div><strong>${escapeHTML(name)}</strong>`;
+    card.addEventListener('click', () => {
+      activeCategory = activeCategory === c.id ? 'all' : c.id;
+      filter.value = activeCategory;
+      buildCategories();
+      renderProducts();
+      document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+    });
+    grid.appendChild(card);
+
+    const option = document.createElement('option');
+    option.value = c.id;
+    option.textContent = c.id;
+    filter.appendChild(option);
+
+    const adminOption = document.createElement('option');
+    adminOption.value = c.id;
+    adminOption.textContent = c.id;
+    adminFilter.appendChild(adminOption);
+  });
+  filter.value = activeCategory;
 }
 
-function renderCategories() {
-document.getElementById('categories').innerHTML =
-initialProducts.map(p =>
-`<button class="cat" onclick="filterCat('${p.cat}')">
-<span class="emoji">${p.emoji}</span>
-${lang==='en'?p.name:p.rw}
-</button>`).join('');
+window.toggleLanguage = function() {
+  language = language === 'en' ? 'rw' : 'en';
+  document.getElementById('languageBtn').textContent = language === 'en' ? 'Kinyarwanda' : 'English';
+
+  const translations = {
+    heroTitle: ['BUILD STRONGER.<br><span>BUILD BETTER.</span>','TWUBAKE DUKOMEYE.<br><span>TURUSHEHO.</span>'],
+    heroText: ['Your trusted destination for quality building and construction materials in Rugerero, Rubavu. Everything you need to build your future.','Aho wagurira ibikoresho byiza byo kubaka i Rugerero, Rubavu.'],
+    shopNow:['Explore Products','Reba Ibicuruzwa'],
+    categoryTitle:['Shop by Category','Gura Ukurikije Ibyiciro'],
+    categorySubtitle:['Find the materials you need for your project.','Shaka ibikoresho ukeneye mu mushinga wawe.'],
+    productsTitle:['Our Products','Ibicuruzwa Byacu'],
+    productsSubtitle:['Quality materials for every construction project.','Ibikoresho byiza ku mishinga yose yo kubaka.'],
+    whyTitle:['Why Choose Us?','Kuki Waduhitamo?'],
+    whySubtitle:['Your project deserves quality and reliability.','Umushinga wawe ukwiye ibikoresho byiza.'],
+    aboutTitle:["About BABA'S QUINCALLERIE","Ibyerekeye BABA'S QUINCALLERIE"],
+    aboutText:['BABA\'S QUINCALLERIE is a building and construction materials shop located in Rugerero, Rubavu, Rwanda. Our goal is to help builders, homeowners and contractors find the materials they need for their projects.','BABA\'S QUINCALLERIE ni iduka ricuruza ibikoresho byo kubaka riherereye i Rugerero, Rubavu, Rwanda. Intego yacu ni ugufasha abakiriya kubona ibikoresho bakeneye mu mishinga yabo.'],
+    contactTitle:['Get in Touch','Twandikire'],
+    contactSubtitle:['We would love to hear from you.','Twishimiye ko watwandikira.']
+  };
+
+  Object.entries(translations).forEach(([id,values]) => {
+    const element = document.getElementById(id);
+    if (element) element.innerHTML = values[language === 'en' ? 0 : 1];
+  });
+
+  document.querySelectorAll('nav a').forEach(a => {
+    a.textContent = a.dataset[language];
+  });
+  buildCategories();
+  renderProducts();
+};
+
+async function loadProducts() {
+  document.getElementById('loadingMessage').textContent = 'Loading products...';
+  const {data,error} = await supabase
+    .from('products')
+    .select('id,name,category,description,price,image_url,stock,created_at')
+    .order('created_at',{ascending:false});
+
+  if (error) {
+    console.error(error);
+    document.getElementById('loadingMessage').textContent =
+      'We could not load products. Please refresh the page or contact the shop.';
+    return;
+  }
+
+  products = data || [];
+  renderProducts();
+  if (currentAdmin) renderAdminProducts();
 }
 
 function renderProducts() {
-let q = document.getElementById('search').value.toLowerCase();
+  const grid = document.getElementById('productGrid');
+  const search = document.getElementById('searchInput').value.toLowerCase().trim();
+  const selected = document.getElementById('categoryFilter').value;
+  const category = selected === 'all' ? activeCategory : selected;
 
-let list = products.filter(p =>
-(!activeCat || p.cat===activeCat) &&
-(`${p.name} ${p.rw} ${p.cat}`).toLowerCase().includes(q)
-);
+  const filtered = products.filter(p => {
+    const matchesCategory = category === 'all' || p.category === category;
+    const matchesSearch = [p.name,p.category,p.description].join(' ').toLowerCase().includes(search);
+    return matchesCategory && matchesSearch;
+  });
 
-document.getElementById('products').innerHTML =
-list.map(p =>
-`<article class="product">
-<div class="pic">${p.emoji || '📦'}</div>
-<div class="info">
-<h3>${lang==='en'?p.name:(p.rw||p.name)}</h3>
-<p>${lang==='en'?'Ask us for availability and current pricing.':'Twandikire umenye niba bihari n’igiciro.'}</p>
-<div class="price">${p.price>0?money(p.price):'Price on request / Saba igiciro'}</div>
-<button onclick="addToCart(${p.id})">
-${lang==='en'?'Add to cart':'Shyira mu gatebo'}
-</button>
-</div>
-</article>`).join('') || '<p>No products found.</p>';
+  grid.innerHTML = '';
+  document.getElementById('loadingMessage').style.display = 'none';
+
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="empty">${products.length ? 'No matching products found.' : 'Our product catalogue is being prepared. Please check again soon.'}</div>`;
+    return;
+  }
+
+  filtered.forEach(p => {
+    const card = document.createElement('article');
+    card.className = 'product';
+    const image = p.image_url
+      ? `<img src="${escapeHTML(p.image_url)}" alt="${escapeHTML(p.name)}" onerror="this.parentElement.textContent='📦'">`
+      : categoryEmoji(p.category);
+
+    card.innerHTML = `
+      <div class="product-image">${image}</div>
+      <div class="product-info">
+        <h3>${escapeHTML(p.name)}</h3>
+        <p>${escapeHTML(p.category || 'Building materials')}</p>
+        <p>${escapeHTML(p.description || '')}</p>
+        <div class="price">${money(p.price)}</div>
+        <div class="${Number(p.stock)>0?'stock':'stock out-stock'}">${Number(p.stock)>0 ? 'In stock: '+Number(p.stock) : 'Out of stock'}</div>
+        <button class="btn btn-gold" ${Number(p.stock)<=0?'disabled':''}>Add to Cart</button>
+      </div>`;
+    card.querySelector('button').addEventListener('click', () => addToCart(p.id));
+    grid.appendChild(card);
+  });
 }
 
-function filterCat(c) {
-activeCat = activeCat===c?'':c;
-renderProducts();
-document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+function saveCart() {
+  localStorage.setItem('babaCart',JSON.stringify(cart));
+  renderCart();
 }
 
 function addToCart(id) {
-cart[id]=(cart[id]||0)+1;
-save();
-updateCart();
-alert('Added to cart / Byongewe mu gatebo');
+  const product = products.find(p => String(p.id) === String(id));
+  if (!product || Number(product.stock) <= 0) return alert('This product is currently out of stock.');
+
+  const existing = cart.find(item => String(item.id) === String(id));
+  if (existing) {
+    if (existing.quantity >= Number(product.stock)) return alert('You have reached the available stock quantity.');
+    existing.quantity++;
+  } else {
+    cart.push({id:product.id,quantity:1});
+  }
+  saveCart();
+  alert('Product added to your cart!');
 }
 
-function updateCart() {
-let count=Object.values(cart).reduce((a,b)=>a+b,0);
-let total=products.reduce((s,p)=>s+(p.price||0)*(cart[p.id]||0),0);
+function renderCart() {
+  const container = document.getElementById('cartItems');
+  let total = 0;
+  let count = 0;
+  container.innerHTML = '';
 
-document.getElementById('cartCount').textContent=count;
-document.getElementById('cartTotal').textContent=money(total);
-document.getElementById('cartGrand').textContent='Total: '+money(total);
+  cart = cart.filter(item => products.some(p => String(p.id) === String(item.id)));
 
-document.getElementById('cartLines').innerHTML =
-Object.entries(cart).filter(([id,n])=>n>0).map(([id,n])=>{
-let p=products.find(x=>x.id==id);
-return p?`<div class="cartline">
-<span>${p.name} × ${n}</span>
-<span>${p.price?money(p.price*n):'Price on request'}
-<button class="danger" onclick="removeItem(${id})">−</button>
-</span>
-</div>`:'';
-}).join('') || '<p>Your cart is empty.</p>';
+  cart.forEach(item => {
+    const p = products.find(product => String(product.id) === String(item.id));
+    if (!p) return;
+    const quantity = Math.min(Number(item.quantity),Number(p.stock));
+    item.quantity = quantity;
+    if (quantity <= 0) return;
+    total += Number(p.price) * quantity;
+    count += quantity;
+
+    const row = document.createElement('div');
+    row.className = 'cart-item';
+    row.innerHTML = `
+      <div><strong>${escapeHTML(p.name)}</strong>
+      <small>${money(p.price)} each</small>
+      <small>Quantity: ${quantity}</small></div>
+      <div>
+        <button class="close" aria-label="Decrease quantity">−</button>
+        <button class="close" aria-label="Increase quantity">+</button>
+        <button class="close" aria-label="Remove item">✕</button>
+      </div>`;
+    const buttons = row.querySelectorAll('button');
+    buttons[0].onclick = () => changeQuantity(p.id,-1);
+    buttons[1].onclick = () => changeQuantity(p.id,1);
+    buttons[2].onclick = () => removeFromCart(p.id);
+    container.appendChild(row);
+  });
+
+  document.getElementById('cartCount').textContent = count;
+  document.getElementById('cartTotal').textContent = money(total);
+  if (!cart.length) container.innerHTML = '<p>Your cart is empty.</p>';
+  localStorage.setItem('babaCart',JSON.stringify(cart));
 }
 
-function removeItem(id) {
-if(cart[id]>1) cart[id]--;
-else delete cart[id];
-save();
-updateCart();
-showCart();
+function changeQuantity(id,amount) {
+  const item = cart.find(i => String(i.id) === String(id));
+  const product = products.find(p => String(p.id) === String(id));
+  if (!item || !product) return;
+  const next = item.quantity + amount;
+  if (next > Number(product.stock)) return alert('Not enough stock available.');
+  if (next <= 0) return removeFromCart(id);
+  item.quantity = next;
+  saveCart();
 }
 
-function showCart() {
-document.getElementById('cartPanel').classList.remove('hidden');
-updateCart();
+function removeFromCart(id) {
+  cart = cart.filter(i => String(i.id) !== String(id));
+  saveCart();
 }
 
-function hideCart() {
-document.getElementById('cartPanel').classList.add('hidden');
+window.openCart = function() {
+  document.getElementById('overlay').classList.add('show');
+  document.getElementById('cartDrawer').classList.add('show');
+};
+window.closeCart = function() {
+  document.getElementById('overlay').classList.remove('show');
+  document.getElementById('cartDrawer').classList.remove('show');
+};
+
+window.checkout = function() {
+  if (!cart.length) return alert('Your cart is empty.');
+  let message = "Hello BABA'S QUINCALLERIE! I would like to order:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    const p = products.find(product => String(product.id) === String(item.id));
+    if (!p) return;
+    message += `${p.name} x ${item.quantity} = ${money(Number(p.price)*item.quantity)}\n`;
+    total += Number(p.price)*item.quantity;
+  });
+
+  message += `\nEstimated total: ${money(total)}\n\nPlease confirm availability.`;
+  window.open('https://wa.me/250796000275?text='+encodeURIComponent(message),'_blank');
+};
+
+async function verifyAdmin(user) {
+  if (!user) return false;
+
+  const {data,error} = await supabase
+    .from('user_roles')
+    .select('role')
+    .eq('user_id',user.id)
+    .maybeSingle();
+
+  if (error || data?.role !== 'admin') {
+    console.error('Administrator role verification failed:',error);
+    return false;
+  }
+  currentAdmin = user;
+  return true;
 }
 
-function checkout() {
-let lines=Object.entries(cart).map(([id,n])=>{
-let p=products.find(x=>x.id==id);
-return p?`${p.name} x ${n} — ${p.price?money(p.price*n):'price to confirm'}`:'';
-}).filter(Boolean);
+window.login = async function(event) {
+  event.preventDefault();
+  const email = document.getElementById('adminEmail').value.trim();
+  const password = document.getElementById('adminPassword').value;
+  const message = document.getElementById('loginError');
+  const button = document.getElementById('loginButton');
 
-if(!lines.length) {
-alert('Your cart is empty');
-return;
+  message.textContent = '';
+  button.disabled = true;
+  button.textContent = 'Signing in...';
+
+  const {data,error} = await supabase.auth.signInWithPassword({email,password});
+
+  if (error) {
+    message.textContent = 'Login failed. Check your email and password.';
+    button.disabled = false;
+    button.textContent = 'Login';
+    return;
+  }
+
+  const allowed = await verifyAdmin(data.user);
+  if (!allowed) {
+    await supabase.auth.signOut();
+    currentAdmin = null;
+    message.textContent = 'This account does not have administrator permission.';
+    button.disabled = false;
+    button.textContent = 'Login';
+    return;
+  }
+
+  document.getElementById('loginArea').classList.add('hidden');
+  document.getElementById('dashboard').classList.remove('hidden');
+  document.getElementById('adminPassword').value = '';
+  renderAdminProducts();
+  button.disabled = false;
+  button.textContent = 'Login';
+};
+
+window.logout = async function() {
+  await supabase.auth.signOut();
+  currentAdmin = null;
+  document.getElementById('dashboard').classList.add('hidden');
+  document.getElementById('loginArea').classList.remove('hidden');
+};
+
+window.addProduct = async function(event) {
+  event.preventDefault();
+  if (!currentAdmin) return alert('Please log in as an administrator.');
+
+  const product = {
+    name:document.getElementById('productName').value.trim(),
+    category:document.getElementById('productCategory').value,
+    price:Number(document.getElementById('productPrice').value),
+    stock:Number(document.getElementById('productStock').value),
+    image_url:document.getElementById('productImage').value.trim() || null,
+    description:document.getElementById('productDescription').value.trim()
+  };
+
+  if (!product.name || product.price < 0 || product.stock < 0) {
+    return alert('Please enter valid product details.');
+  }
+
+  const {error} = await supabase.from('products').insert(product);
+  if (error) {
+    console.error(error);
+    document.getElementById('adminMessage').textContent = 'Could not add product: '+error.message;
+    return;
+  }
+
+  document.getElementById('adminMessage').textContent = 'Product added successfully!';
+  document.getElementById('adminMessage').className = 'success';
+  event.target.reset();
+  await loadProducts();
+};
+
+function renderAdminProducts() {
+  const container = document.getElementById('adminProductList');
+  container.innerHTML = '';
+
+  if (!products.length) {
+    container.textContent = 'No products have been added yet.';
+    return;
+  }
+
+  products.forEach(p => {
+    const row = document.createElement('div');
+    row.className = 'admin-row';
+    row.innerHTML = `
+      <div style="min-width:140px;flex:1"><strong>${escapeHTML(p.name)}</strong><br><small>${escapeHTML(p.category || '')}</small></div>
+      <label>Price <input type="number" min="0" step="1" value="${Number(p.price)}" class="edit-price"></label>
+      <label>Stock <input type="number" min="0" step="1" value="${Number(p.stock)}" class="edit-stock"></label>
+      <button class="btn btn-dark save-button">Save</button>
+      <button class="btn" style="background:#ffe1e1;color:#a00" >Delete</button>`;
+
+    const inputs = row.querySelectorAll('input');
+    row.querySelector('.save-button').onclick = () => updateProduct(p.id,inputs[0].value,inputs[1].value);
+    row.querySelectorAll('button')[1].onclick = () => deleteProduct(p.id,p.name);
+    container.appendChild(row);
+  });
 }
 
-let msg=encodeURIComponent(
-"Hello BABA'S QUINCALLERIE, I would like to order:\n"+
-lines.join('\n')+
-"\nPlease confirm availability, total price and delivery."
-);
+async function updateProduct(id,price,stock) {
+  if (!currentAdmin) return alert('Administrator login required.');
+  if (price === '' || stock === '' || Number(price) < 0 || Number(stock) < 0) {
+    return alert('Enter valid price and stock values.');
+  }
 
-window.open('https://wa.me/250796000275?text='+msg,'_blank');
+  const {error} = await supabase.from('products')
+    .update({price:Number(price),stock:Number(stock)})
+    .eq('id',id);
+
+  if (error) return alert('Update failed: '+error.message);
+  alert('Product updated successfully.');
+  await loadProducts();
 }
 
-function toggleLanguage() {
-lang=lang==='en'?'rw':'en';
+async function deleteProduct(id,name) {
+  if (!currentAdmin) return alert('Administrator login required.');
+  if (!confirm(`Delete "${name}" from your catalogue?`)) return;
 
-document.querySelectorAll('[data-en]').forEach(el=>{
-el.textContent=el.dataset[lang];
-});
+  const {error} = await supabase.from('products').delete().eq('id',id);
+  if (error) return alert('Delete failed: '+error.message);
 
-document.getElementById('langButton').textContent =
-lang==='en'?'Kinyarwanda':'English';
-
-renderCategories();
-renderProducts();
+  cart = cart.filter(item => String(item.id) !== String(id));
+  saveCart();
+  await loadProducts();
 }
 
-function openAdmin() {
-document.getElementById('adminPanel').classList.remove('hidden');
-document.getElementById('adminPanel').scrollIntoView({behavior:'smooth'});
+async function start() {
+  buildCategories();
+  renderCart();
+  await loadProducts();
+
+  const {data} = await supabase.auth.getSession();
+  if (data.session?.user) {
+    const allowed = await verifyAdmin(data.session.user);
+    if (allowed) {
+      document.getElementById('loginArea').classList.add('hidden');
+      document.getElementById('dashboard').classList.remove('hidden');
+      renderAdminProducts();
+    } else {
+      await supabase.auth.signOut();
+    }
+  }
+
+  supabase.auth.onAuthStateChange((event,session) => {
+    if (event === 'SIGNED_OUT') {
+      currentAdmin = null;
+      document.getElementById('dashboard').classList.add('hidden');
+      document.getElementById('loginArea').classList.remove('hidden');
+    }
+  });
 }
 
-function closeAdmin() {
-document.getElementById('adminPanel').classList.add('hidden');
-}
-
-function login() {
-if(
-document.getElementById('adminUser').value==='admin' &&
-document.getElementById('adminPass').value==='BabaDemo2026!'
-) {
-document.getElementById('loginArea').classList.add('hidden');
-document.getElementById('dashboard').classList.remove('hidden');
-renderAdmin();
-} else {
-document.getElementById('loginError').textContent='Incorrect username or password.';
-}
-}
-
-function renderAdmin() {
-document.getElementById('adminProducts').innerHTML =
-products.map(p=>`<div class="cartline">
-<span>${p.name} · ${p.price?money(p.price):'Price on request'}</span>
-<button class="danger" onclick="deleteProduct(${p.id})">Delete</button>
-</div>`).join('');
-}
-
-function addProduct() {
-let name=document.getElementById('newName').value.trim();
-let price=Number(document.getElementById('newPrice').value);
-let emoji=document.getElementById('newEmoji').value.trim()||'📦';
-
-if(!name) {
-alert('Enter a product name');
-return;
-}
-
-products.push({
-id:Date.now(),
-name,
-rw:name,
-cat:'Other',
-emoji,
-price
-});
-
-save();
-renderProducts();
-renderAdmin();
-
-document.getElementById('newName').value='';
-document.getElementById('newPrice').value='';
-document.getElementById('newEmoji').value='';
-}
-
-function deleteProduct(id) {
-products=products.filter(p=>p.id!==id);
-delete cart[id];
-save();
-renderProducts();
-renderAdmin();
-updateCart();
-}
-
-function logout() {
-document.getElementById('dashboard').classList.add('hidden');
-document.getElementById('loginArea').classList.remove('hidden');
-document.getElementById('adminPass').value='';
-}
-
-document.getElementById('search').addEventListener('input',renderProducts);
-document.getElementById('year').textContent=new Date().getFullYear();
-
-renderCategories();
-renderProducts();
-updateCart();
+start();
 </script>
-
-<!-- SUPABASE CONNECTION -->
-<script type="module">
-import { createClient } from
-'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-const SUPABASE_URL =
-'https://iaxqvxeqjndrdwcdysdh.supabase.co';
-
-const SUPABASE_KEY =
-'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlheHF2eGVxam5kcmR3Y2R5c2RoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUxMDM0MzgsImV4cCI6MjExMDY3OTQzOH0.4FE6BxnruF_B1KFTRdmGZnsCnxVG4tFCIV5eUc1rGfA';
-
-const supabase = createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
-
-window.supabase = supabase;
-
-console.log("BABA'S QUINCALLERIE Supabase client initialized!");
-</script>
-
 </body>
 </html>
