@@ -111,4 +111,38 @@ function deleteProduct(id){products=products.filter(p=>p.id!==id);delete cart[id
 function logout(){document.getElementById('dashboard').classList.add('hidden');document.getElementById('loginArea').classList.remove('hidden');document.getElementById('adminPass').value=''}
 document.getElementById('search').addEventListener('input',renderProducts);document.getElementById('year').textContent=new Date().getFullYear();renderCategories();renderProducts();updateCart();
 </script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BABA'S QUINCALLERIE</title>
+    <!-- Your existing CSS and other code stay here -->
+</head>
+
+<body>
+
+    <!-- YOUR EXISTING WEBSITE CODE STAYS HERE -->
+
+    <!-- SUPABASE CONNECTION -->
+    <script type="module">
+        import { createClient } from
+        'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+        const SUPABASE_URL =
+        'https://iaxqvxeqjndrdwcdysdh.supabase.co';
+
+        const SUPABASE_KEY =
+        'YOUR_PUBLISHABLE_KEY_HERE';
+
+        const supabase = createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+        window.supabase = supabase;
+
+        console.log("BABA'S QUINCALLERIE connected!");
+    </script>
+
+</body>
+</html>
