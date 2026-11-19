@@ -1,23 +1,609 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#062653">
+<title>BABA'S QUINCALLERIE | Build Better. Live Better.</title>
+
+<style>
+:root {
+--navy:#062653;
+--blue:#0b3d78;
+--gold:#ffc400;
+--ink:#14233d;
+--muted:#66758b;
+--paper:#f5f8fc;
+--white:#fff;
+}
+
+* {box-sizing:border-box}
+body {
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+color:var(--ink);
+background:var(--paper);
+}
+a {color:inherit;text-decoration:none}
+button,input,select {font:inherit}
+button {cursor:pointer;border:0}
+
+.top {
+background:#031b3b;color:white;
+padding:9px 4%;
+display:flex;justify-content:space-between;
+gap:12px;flex-wrap:wrap;font-size:14px;
+}
+
+header {
+background:white;padding:15px 4%;
+display:flex;align-items:center;
+gap:20px;justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.brand {
+font-size:27px;font-weight:900;
+color:var(--navy);letter-spacing:-1px;
+}
+.brand span {color:#e6a900}
+.tag {font-size:12px;color:var(--muted);font-weight:600}
+
+.search {
+display:flex;flex:1;max-width:520px;min-width:220px;
+}
+.search input {
+width:100%;padding:13px;
+border:1px solid #b8c7dc;
+border-radius:9px 0 0 9px;
+}
+.search button,.primary {
+background:var(--gold);color:#111;
+font-weight:800;padding:13px 18px;
+border-radius:0 9px 9px 0;
+}
+
+nav {
+background:var(--navy);color:white;
+padding:0 4%;display:flex;gap:5px;
+align-items:center;flex-wrap:wrap;
+}
+nav button {
+background:transparent;color:white;
+padding:15px 17px;font-weight:700;
+}
+nav button:hover {background:#164477}
+nav .right {margin-left:auto}
+
+.hero {
+background:
+linear-gradient(100deg,rgba(2,24,55,.97),rgba(4,48,96,.78)),
+url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85')
+center/cover;
+color:white;padding:65px 5%;
+min-height:350px;display:flex;align-items:center;
+}
+.hero-inner {max-width:680px}
+.hero h1 {
+font-size:clamp(34px,5vw,58px);
+line-height:1.04;margin:0 0 14px;
+}
+.hero h1 span {color:var(--gold)}
+.hero p {font-size:21px;line-height:1.5}
+.hero ul {padding-left:20px;line-height:1.9;font-weight:700}
+.hero .primary {border-radius:30px;padding:15px 24px}
+
+main {max-width:1300px;margin:auto;padding:28px 4%}
+.section-head {
+display:flex;justify-content:space-between;
+align-items:center;gap:12px;flex-wrap:wrap;
+}
+.section-head h2 {margin:0 0 17px;color:var(--navy)}
+
+.categories {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
+gap:12px;margin-bottom:30px;
+}
+.cat {
+background:white;border:1px solid #d7e1ee;
+border-radius:12px;padding:17px 10px;
+text-align:center;font-weight:800;color:var(--navy);
+box-shadow:0 3px 10px #092b5010;
+}
+.cat .emoji {display:block;font-size:34px;margin-bottom:8px}
+
+.products {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(205px,1fr));
+gap:16px;
+}
+.product {
+background:white;border:1px solid #dce5ef;
+border-radius:13px;overflow:hidden;
+box-shadow:0 4px 12px #092b500d;
+display:flex;flex-direction:column;
+}
+.product .pic {
+height:135px;background:linear-gradient(135deg,#e8f0fa,#cddced);
+display:grid;place-items:center;font-size:54px;
+}
+.product .info {
+padding:14px;display:flex;
+flex-direction:column;gap:8px;flex:1;
+}
+.product h3 {margin:0;color:var(--navy);font-size:17px}
+.product p {margin:0;color:var(--muted);font-size:13px;line-height:1.4}
+.price {font-weight:900;color:#b17b00}
+.product button {
+background:var(--navy);color:white;
+padding:11px;border-radius:8px;font-weight:700;
+}
+
+.features {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:12px;margin:30px 0;
+}
+.feature {
+background:#e8f1fc;border-radius:10px;
+padding:18px;font-weight:800;color:var(--navy);
+}
+
+.contact {
+background:var(--navy);color:white;
+padding:24px;border-radius:14px;
+display:flex;align-items:center;
+justify-content:space-between;gap:18px;flex-wrap:wrap;
+}
+.contact strong {color:var(--gold);font-size:22px}
+
+footer {
+background:#031b3b;color:white;
+padding:24px 4%;text-align:center;margin-top:25px;
+}
+
+.panel {
+background:white;border:1px solid #dce5ef;
+padding:18px;border-radius:12px;margin:18px 0;
+}
+.hidden {display:none!important}
+.row {display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.row input,.row select {
+padding:10px;border:1px solid #bac8d9;border-radius:8px;
+}
+.pill {background:#edf3fa;border-radius:30px;padding:8px 12px;font-weight:700}
+.cartline {
+display:flex;justify-content:space-between;
+gap:12px;border-bottom:1px solid #e4eaf2;padding:10px 0;
+}
+.secondary {
+background:#e7eef8;color:var(--navy);
+padding:10px 14px;border-radius:8px;font-weight:700;
+}
+.danger {background:#ffe9e9;color:#9d2020;padding:9px 12px}
+.notice {font-size:13px;color:var(--muted);line-height:1.5}
+
+@media(max-width:650px) {
+header {gap:12px}
+.brand {font-size:22px}
+.hero {padding:45px 6%}
+.hero p {font-size:17px}
+nav button {padding:12px 9px;font-size:13px}
+main {padding:22px 4%}
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+<span>📍 Rugerero, Rubavu – Rwanda</span>
+<span>☎ +250 796 000 275</span>
+<span>🇷🇼 English / Kinyarwanda</span>
+</div>
+
+<header>
+<div>
+<div class="brand">BABA'S <span>QUINCALLERIE</span></div>
+<div class="tag">BUILD BETTER. LIVE BETTER.</div>
+</div>
+
+<div class="search">
+<input id="search" placeholder="Search for products..." aria-label="Search products">
+<button onclick="renderProducts()">⌕</button>
+</div>
+
+<button class="secondary" onclick="showCart()">
+🛒 <span id="cartCount">0</span> · <span id="cartTotal">RWF 0</span>
+</button>
+</header>
+
+<nav>
+<button onclick="scrollTo({top:0,behavior:'smooth'})">Home</button>
+<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Our Products</button>
+<button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About Us</button>
+<button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
+<button class="right" onclick="openAdmin()">Admin Login</button>
+<button onclick="toggleLanguage()" id="langButton">Kinyarwanda</button>
+</nav>
+
+<section class="hero">
+<div class="hero-inner">
+<h1>BABA'S <span>QUINCALLERIE</span></h1>
+
+<p data-en="Your trusted hardware store in Rugerero, Rubavu – Rwanda."
+data-rw="Iduka ryanyu ryizewe ry'ibikoresho by'ubwubatsi i Rugerero, Rubavu – Rwanda.">
+Your trusted hardware store in Rugerero, Rubavu – Rwanda.
+</p>
+
+<ul>
+<li data-en="Quality building materials" data-rw="Ibikoresho by'ubwubatsi byiza">Quality building materials</li>
+<li data-en="Competitive prices" data-rw="Ibiciro byiza">Competitive prices</li>
+<li data-en="Fast and reliable service" data-rw="Serivisi yihuse kandi yizewe">Fast and reliable service</li>
+</ul>
+
+<button class="primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+Shop Now →
+</button>
+</div>
+</section>
+
+<main>
+
+<section id="shop">
+<div class="section-head">
+<h2 data-en="Shop by Category" data-rw="Hitamo Icyiciro">Shop by Category</h2>
+<span class="pill" id="productCount">11 categories</span>
+</div>
+
+<div class="categories" id="categories"></div>
+
+<div class="section-head">
+<h2 data-en="Featured Products" data-rw="Ibicuruzwa By'ingenzi">Featured Products</h2>
+<span class="notice">Prices confirmed by the shop</span>
+</div>
+
+<div class="products" id="products"></div>
+</section>
+
+<section id="about">
+<h2 data-en="Why Choose BABA'S QUINCALLERIE?"
+data-rw="Kuki Wahitamo BABA'S QUINCALLERIE?">
+Why Choose BABA'S QUINCALLERIE?
+</h2>
+
+<div class="features">
+<div class="feature">🏅 <span data-en="Quality products" data-rw="Ibicuruzwa byiza">Quality products</span></div>
+<div class="feature">🏷️ <span data-en="Competitive prices" data-rw="Ibiciro biboneye">Competitive prices</span></div>
+<div class="feature">🚚 <span data-en="Delivery in Rwanda" data-rw="Gutanga ibicuruzwa mu Rwanda">Delivery in Rwanda</span></div>
+<div class="feature">🎧 <span data-en="Customer support" data-rw="Gufasha abakiriya">Customer support</span></div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div>
+<h2 data-en="Need help with your project?" data-rw="Ukeneye ubufasha ku mushinga wawe?">
+Need help with your project?
+</h2>
+<div>WhatsApp / Call</div>
+<strong>+250 796 000 275</strong>
+</div>
+<a class="primary" style="border-radius:9px"
+href="https://wa.me/250796000275" target="_blank" rel="noopener">
+Chat on WhatsApp
+</a>
+</section>
+
+<div id="cartPanel" class="panel hidden">
+<div class="section-head">
+<h2>Your Cart / Igitebo</h2>
+<button class="secondary" onclick="hideCart()">Close</button>
+</div>
+
+<div id="cartLines"></div>
+
+<div class="row" style="justify-content:space-between;margin-top:15px">
+<strong id="cartGrand">Total: RWF 0</strong>
+<button class="primary" style="border-radius:8px" onclick="checkout()">
+Order on WhatsApp
+</button>
+</div>
+
+<p class="notice">
+Online payment options will be connected after the shop's payment provider and merchant account are confirmed.
+</p>
+</div>
+
+<div id="adminPanel" class="panel hidden">
+<div class="section-head">
+<h2>Admin Dashboard</h2>
+<button class="secondary" onclick="closeAdmin()">Close</button>
+</div>
+
+<div id="loginArea">
+<p>Sign in to manage the product catalogue on this demo.</p>
+<div class="row">
+<input id="adminUser" placeholder="Username">
+<input id="adminPass" type="password" placeholder="Password">
+<button class="primary" style="border-radius:8px" onclick="login()">Sign in</button>
+</div>
+<p class="notice">
+Demo login: <b>admin</b> / <b>BabaDemo2026!</b>.
+This prototype login is not secure for a live store.
+</p>
+<p id="loginError" style="color:#a22"></p>
+</div>
+
+<div id="dashboard" class="hidden">
+<p class="pill">Signed in as admin</p>
+<h3>Add a product</h3>
+
+<div class="row">
+<input id="newName" placeholder="Product name">
+<input id="newPrice" type="number" min="0" placeholder="Price in RWF">
+<input id="newEmoji" placeholder="Icon e.g. 🧱" style="width:100px">
+<button class="primary" style="border-radius:8px" onclick="addProduct()">Add</button>
+</div>
+
+<h3>Catalogue</h3>
+<div id="adminProducts"></div>
+<button class="secondary" onclick="logout()">Log out</button>
+</div>
+</div>
+
+</main>
+
+<footer>
+© <span id="year"></span> BABA'S QUINCALLERIE · Rugerero, Rubavu, Rwanda · +250 796 000 275
+</footer>
+
+<script>
+const initialProducts = [
+{id:1,name:'Cement',rw:'Sima',cat:'Cement',emoji:'🧱',price:0},
+{id:2,name:'Iron & Steel',rw:'Ibyuma',cat:'Steel',emoji:'🔩',price:0},
+{id:3,name:'Bricks',rw:'Amatafari',cat:'Bricks',emoji:'🧱',price:0},
+{id:4,name:'Sand',rw:'Umucanga',cat:'Sand',emoji:'⛰️',price:0},
+{id:5,name:'Gravel',rw:'Amabuye',cat:'Gravel',emoji:'🪨',price:0},
+{id:6,name:'Roofing Sheets',rw:'Amabati',cat:'Roofing',emoji:'🏠',price:0},
+{id:7,name:'Pipes',rw:'Imiyoboro',cat:'Pipes',emoji:'🪠',price:0},
+{id:8,name:'Paints',rw:'Amarangi',cat:'Paint',emoji:'🪣',price:0},
+{id:9,name:'Tiles',rw:'Amakaro',cat:'Tiles',emoji:'◻️',price:0},
+{id:10,name:'Tools',rw:'Ibikoresho',cat:'Tools',emoji:'🔨',price:0},
+{id:11,name:'Electrical Materials',rw:'Ibikoresho by’amashanyarazi',cat:'Electrical',emoji:'💡',price:0}
+];
+
+let products = JSON.parse(localStorage.getItem('babaProducts') || 'null') || initialProducts;
+let cart = JSON.parse(localStorage.getItem('babaCart') || '{}');
+let lang = 'en';
+let activeCat = '';
+
+function save() {
+localStorage.setItem('babaProducts',JSON.stringify(products));
+localStorage.setItem('babaCart',JSON.stringify(cart));
+}
+
+function money(n) {
+return 'RWF ' + Number(n || 0).toLocaleString('en-US');
+}
+
+function renderCategories() {
+document.getElementById('categories').innerHTML =
+initialProducts.map(p =>
+`<button class="cat" onclick="filterCat('${p.cat}')">
+<span class="emoji">${p.emoji}</span>
+${lang==='en'?p.name:p.rw}
+</button>`).join('');
+}
+
+function renderProducts() {
+let q = document.getElementById('search').value.toLowerCase();
+
+let list = products.filter(p =>
+(!activeCat || p.cat===activeCat) &&
+(`${p.name} ${p.rw} ${p.cat}`).toLowerCase().includes(q)
+);
+
+document.getElementById('products').innerHTML =
+list.map(p =>
+`<article class="product">
+<div class="pic">${p.emoji || '📦'}</div>
+<div class="info">
+<h3>${lang==='en'?p.name:(p.rw||p.name)}</h3>
+<p>${lang==='en'?'Ask us for availability and current pricing.':'Twandikire umenye niba bihari n’igiciro.'}</p>
+<div class="price">${p.price>0?money(p.price):'Price on request / Saba igiciro'}</div>
+<button onclick="addToCart(${p.id})">
+${lang==='en'?'Add to cart':'Shyira mu gatebo'}
+</button>
+</div>
+</article>`).join('') || '<p>No products found.</p>';
+}
+
+function filterCat(c) {
+activeCat = activeCat===c?'':c;
+renderProducts();
+document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+}
+
+function addToCart(id) {
+cart[id]=(cart[id]||0)+1;
+save();
+updateCart();
+alert('Added to cart / Byongewe mu gatebo');
+}
+
+function updateCart() {
+let count=Object.values(cart).reduce((a,b)=>a+b,0);
+let total=products.reduce((s,p)=>s+(p.price||0)*(cart[p.id]||0),0);
+
+document.getElementById('cartCount').textContent=count;
+document.getElementById('cartTotal').textContent=money(total);
+document.getElementById('cartGrand').textContent='Total: '+money(total);
+
+document.getElementById('cartLines').innerHTML =
+Object.entries(cart).filter(([id,n])=>n>0).map(([id,n])=>{
+let p=products.find(x=>x.id==id);
+return p?`<div class="cartline">
+<span>${p.name} × ${n}</span>
+<span>${p.price?money(p.price*n):'Price on request'}
+<button class="danger" onclick="removeItem(${id})">−</button>
+</span>
+</div>`:'';
+}).join('') || '<p>Your cart is empty.</p>';
+}
+
+function removeItem(id) {
+if(cart[id]>1) cart[id]--;
+else delete cart[id];
+save();
+updateCart();
+showCart();
+}
+
+function showCart() {
+document.getElementById('cartPanel').classList.remove('hidden');
+updateCart();
+}
+
+function hideCart() {
+document.getElementById('cartPanel').classList.add('hidden');
+}
+
+function checkout() {
+let lines=Object.entries(cart).map(([id,n])=>{
+let p=products.find(x=>x.id==id);
+return p?`${p.name} x ${n} — ${p.price?money(p.price*n):'price to confirm'}`:'';
+}).filter(Boolean);
+
+if(!lines.length) {
+alert('Your cart is empty');
+return;
+}
+
+let msg=encodeURIComponent(
+"Hello BABA'S QUINCALLERIE, I would like to order:\n"+
+lines.join('\n')+
+"\nPlease confirm availability, total price and delivery."
+);
+
+window.open('https://wa.me/250796000275?text='+msg,'_blank');
+}
+
+function toggleLanguage() {
+lang=lang==='en'?'rw':'en';
+
+document.querySelectorAll('[data-en]').forEach(el=>{
+el.textContent=el.dataset[lang];
+});
+
+document.getElementById('langButton').textContent =
+lang==='en'?'Kinyarwanda':'English';
+
+renderCategories();
+renderProducts();
+}
+
+function openAdmin() {
+document.getElementById('adminPanel').classList.remove('hidden');
+document.getElementById('adminPanel').scrollIntoView({behavior:'smooth'});
+}
+
+function closeAdmin() {
+document.getElementById('adminPanel').classList.add('hidden');
+}
+
+function login() {
+if(
+document.getElementById('adminUser').value==='admin' &&
+document.getElementById('adminPass').value==='BabaDemo2026!'
+) {
+document.getElementById('loginArea').classList.add('hidden');
+document.getElementById('dashboard').classList.remove('hidden');
+renderAdmin();
+} else {
+document.getElementById('loginError').textContent='Incorrect username or password.';
+}
+}
+
+function renderAdmin() {
+document.getElementById('adminProducts').innerHTML =
+products.map(p=>`<div class="cartline">
+<span>${p.name} · ${p.price?money(p.price):'Price on request'}</span>
+<button class="danger" onclick="deleteProduct(${p.id})">Delete</button>
+</div>`).join('');
+}
+
+function addProduct() {
+let name=document.getElementById('newName').value.trim();
+let price=Number(document.getElementById('newPrice').value);
+let emoji=document.getElementById('newEmoji').value.trim()||'📦';
+
+if(!name) {
+alert('Enter a product name');
+return;
+}
+
+products.push({
+id:Date.now(),
+name,
+rw:name,
+cat:'Other',
+emoji,
+price
+});
+
+save();
+renderProducts();
+renderAdmin();
+
+document.getElementById('newName').value='';
+document.getElementById('newPrice').value='';
+document.getElementById('newEmoji').value='';
+}
+
+function deleteProduct(id) {
+products=products.filter(p=>p.id!==id);
+delete cart[id];
+save();
+renderProducts();
+renderAdmin();
+updateCart();
+}
+
+function logout() {
+document.getElementById('dashboard').classList.add('hidden');
+document.getElementById('loginArea').classList.remove('hidden');
+document.getElementById('adminPass').value='';
+}
+
+document.getElementById('search').addEventListener('input',renderProducts);
+document.getElementById('year').textContent=new Date().getFullYear();
+
+renderCategories();
+renderProducts();
+updateCart();
+</script>
+
 <!-- SUPABASE CONNECTION -->
 <script type="module">
-    import { createClient } from
-    'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+import { createClient } from
+'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-    const SUPABASE_URL =
-    'https://iaxqvxeqjndrdwcdysdh.supabase.co';
+const SUPABASE_URL =
+'https://iaxqvxeqjndrdwcdysdh.supabase.co';
 
-    const SUPABASE_KEY =
-    'PASTE_YOUR_PUBLISHABLE_KEY_HERE';
+const SUPABASE_KEY =
+'PASTE_YOUR_PUBLISHABLE_KEY_HERE';
 
-    const supabase = createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
+const supabase = createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
 
-    window.supabase = supabase;
+window.supabase = supabase;
 
-    console.log("BABA'S QUINCALLERIE connected!");
+console.log("BABA'S QUINCALLERIE Supabase client initialized!");
 </script>
 
 </body>
