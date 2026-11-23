@@ -1,4 +1,420 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABA'S QUINCALLERIE | Building Materials Rwanda</title>
+<meta name="description" content="Quality building and construction materials in Rugerero, Rubavu, Rwanda.">
+<style>
+:root {
+  --navy:#142b45;
+  --gold:#e5a928;
+  --light:#f5f6f8;
+  --text:#263445;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:white;
+}
+a {text-decoration:none;color:inherit}
+button,input,select,textarea {font:inherit}
+button {cursor:pointer}
+.container {width:min(1150px,92%);margin:auto}
+.topbar {
+  background:var(--navy);
+  color:white;
+  padding:10px 4%;
+  text-align:center;
+  font-size:13px;
+}
+header {
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 2px 12px #00000012;
+}
+.header-inner {
+  min-height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo {font-size:21px;font-weight:900;color:var(--navy)}
+.logo span {color:var(--gold)}
+nav {display:flex;gap:20px;flex-wrap:wrap}
+nav a {font-size:14px;font-weight:700}
+nav a:hover {color:#c58a12}
+.header-actions {display:flex;gap:10px;align-items:center}
+.btn {
+  border:0;
+  padding:12px 18px;
+  border-radius:5px;
+  font-weight:700;
+  display:inline-block;
+}
+.btn-gold {background:var(--gold);color:#17283b}
+.btn-dark {background:var(--navy);color:white}
+.btn-light {background:#edf0f4;color:var(--navy)}
+.hero {
+  background:linear-gradient(90deg,#10243beF,#10243b99),
+  url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=85') center/cover;
+  color:white;
+  padding:100px 0;
+}
+.hero-content {max-width:650px}
+.hero h1 {font-size:clamp(36px,6vw,62px);line-height:1.08;margin:0 0 20px}
+.hero h1 span {color:var(--gold)}
+.hero p {font-size:18px;line-height:1.7;margin-bottom:28px}
+section {padding:65px 0}
+.section-heading {text-align:center;margin-bottom:35px}
+.section-heading h2 {font-size:32px;color:var(--navy);margin:0 0 10px}
+.section-heading p {color:#697586}
+.category-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:18px;
+}
+.category {
+  border:1px solid #e6e9ee;
+  border-radius:9px;
+  overflow:hidden;
+  text-align:center;
+  cursor:pointer;
+  background:white;
+  transition:.2s;
+}
+.category:hover,.category.active {
+  border-color:var(--gold);
+  transform:translateY(-3px);
+  box-shadow:0 5px 18px #00000012;
+}
+.category-image {width:100%;height:110px;object-fit:cover;display:block}
+.category strong {display:block;padding:14px 8px;font-size:14px}
+.shop-section {background:var(--light)}
+.shop-tools {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
+}
+.shop-tools input,.shop-tools select {
+  padding:13px;
+  border:1px solid #d9dee6;
+  border-radius:5px;
+  background:white;
+  min-width:200px;
+  flex:1;
+}
+.product-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
+}
+.product {
+  background:white;
+  border-radius:9px;
+  overflow:hidden;
+  box-shadow:0 3px 15px #0000000c;
+}
+.product-image {
+  height:190px;
+  background:#edf0f3;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:40px;
+  overflow:hidden;
+}
+.product-image img {width:100%;height:100%;object-fit:cover}
+.product-info {padding:18px}
+.product-info h3 {margin:0 0 8px;color:var(--navy)}
+.product-info p {font-size:13px;color:#697586;line-height:1.5}
+.price {font-size:19px;font-weight:900;color:#bd8617;margin:12px 0}
+.stock {font-size:12px;color:#18834b;margin-bottom:12px}
+.out-stock {color:#c33}
+.product-info button {width:100%}
+.empty {grid-column:1/-1;text-align:center;padding:35px;background:white;border-radius:8px}
+.features {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:20px;
+}
+.feature {
+  background:var(--light);
+  padding:25px;
+  border-radius:8px;
+  text-align:center;
+}
+.feature h3 {color:var(--navy)}
+.about {background:#f5f6f8}
+.about p {line-height:1.8;max-width:850px;margin:auto;text-align:center}
+.contact-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  text-align:center;
+}
+.contact-card {padding:22px;background:var(--light);border-radius:8px}
+footer {background:var(--navy);color:white;text-align:center;padding:28px 10px}
+footer span {color:var(--gold)}
+.cart-button {position:relative}
+.cart-count {
+  background:#d33;color:white;border-radius:50%;
+  min-width:19px;height:19px;padding:2px 5px;
+  font-size:11px;position:absolute;top:-8px;right:-8px;
+}
+.overlay {
+  position:fixed;inset:0;background:#0008;
+  z-index:20;display:none;
+}
+.overlay.show {display:block}
+.cart-drawer {
+  position:fixed;right:-430px;top:0;width:min(410px,92vw);
+  height:100vh;background:white;z-index:21;
+  padding:25px;transition:.3s;overflow-y:auto;
+}
+.cart-drawer.show {right:0}
+.cart-header {display:flex;justify-content:space-between;align-items:center}
+.cart-item {
+  display:flex;justify-content:space-between;gap:12px;
+  border-bottom:1px solid #eee;padding:15px 0;
+}
+.cart-item small {display:block;color:#687586;margin-top:5px}
+.close {
+  border:0;background:#edf0f4;padding:7px 10px;
+  border-radius:4px;margin-left:3px;
+}
+.cart-total {font-size:20px;font-weight:900;margin:20px 0}
+.admin-section {background:#f1f3f6;display:none}
+.admin-section.show {display:block}
+.admin-box {
+  max-width:750px;margin:20px auto;background:white;
+  border-radius:9px;padding:25px;box-shadow:0 3px 15px #0000000d;
+}
+.admin-box h3 {color:var(--navy)}
+.form-grid {display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-field {margin-bottom:14px}
+.form-field label {display:block;font-weight:700;font-size:13px;margin-bottom:6px}
+.form-field input,.form-field select,.form-field textarea {
+  width:100%;padding:12px;border:1px solid #d9dee6;border-radius:5px;
+}
+.form-field textarea {min-height:85px}
+.admin-row {
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:14px 0;border-bottom:1px solid #eee;
+}
+.admin-row label {font-size:12px}
+.admin-row input {width:95px;padding:8px;border:1px solid #ddd;border-radius:4px}
+.hidden {display:none!important}
+.error {color:#c22;margin:10px 0}
+.success {color:#18834b;margin:10px 0}
+#loadingMessage {text-align:center;padding:20px}
+@media(max-width:760px) {
+  .header-inner {padding:14px 0;flex-wrap:wrap}
+  nav {order:3;width:100%;justify-content:center}
+  .hero {padding:75px 0}
+  .hero p {font-size:16px}
+  .form-grid {grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  Quality Building Materials | Rugerero, Rubavu, Rwanda
+</div>
+
+<header>
+  <div class="container header-inner">
+    <a class="logo" href="#home">BABA'S <span>QUINCALLERIE</span></a>
+
+    <nav>
+      <a href="#home" data-en="Home" data-rw="Ahabanza">Home</a>
+      <a href="#categories" data-en="Categories" data-rw="Ibyiciro">Categories</a>
+      <a href="#shop" data-en="Products" data-rw="Ibicuruzwa">Products</a>
+      <a href="#about" data-en="About" data-rw="Abo Turibo">About</a>
+      <a href="#contact" data-en="Contact" data-rw="Twandikire">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn btn-light" id="languageBtn" onclick="toggleLanguage()">Kinyarwanda</button>
+      <button class="btn btn-dark cart-button" onclick="openCart()">
+        Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <h1 id="heroTitle">BUILD STRONGER.<br><span>BUILD BETTER.</span></h1>
+      <p id="heroText">Your trusted destination for quality building and construction materials in Rugerero, Rubavu. Everything you need to build your future.</p>
+      <a href="#shop" class="btn btn-gold" id="shopNow">Explore Products</a>
+    </div>
+  </section>
+
+  <section id="categories">
+    <div class="container">
+      <div class="section-heading">
+        <h2 id="categoryTitle">Shop by Category</h2>
+        <p id="categorySubtitle">Find the materials you need for your project.</p>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </div>
+  </section>
+
+  <section class="shop-section" id="shop">
+    <div class="container">
+      <div class="section-heading">
+        <h2 id="productsTitle">Our Products</h2>
+        <p id="productsSubtitle">Quality materials for every construction project.</p>
+      </div>
+
+      <div class="shop-tools">
+        <input type="search" id="searchInput" placeholder="Search products...">
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+
+      <div id="loadingMessage">Loading products...</div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-heading">
+        <h2 id="whyTitle">Why Choose Us?</h2>
+        <p id="whySubtitle">Your project deserves quality and reliability.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><h3>Quality Products</h3><p>Materials selected for your construction needs.</p></div>
+        <div class="feature"><h3>Fair Prices</h3><p>Great value for your building projects.</p></div>
+        <div class="feature"><h3>Local Service</h3><p>Serving customers in Rugerero and Rubavu.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-heading">
+        <h2 id="aboutTitle">About BABA'S QUINCALLERIE</h2>
+      </div>
+      <p id="aboutText">BABA'S QUINCALLERIE is a building and construction materials shop located in Rugerero, Rubavu, Rwanda. Our goal is to help builders, homeowners and contractors find the materials they need for their projects.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-heading">
+        <h2 id="contactTitle">Get in Touch</h2>
+        <p id="contactSubtitle">We would love to hear from you.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card"><h3>Location</h3><p>Rugerero, Rubavu, Rwanda</p></div>
+        <div class="contact-card"><h3>WhatsApp / Phone</h3><p>+250 796 000 275</p></div>
+        <div class="contact-card"><h3>Orders</h3><p>Contact us directly through WhatsApp.</p><a class="btn btn-gold" href="https://wa.me/250796000275">Chat with us</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="admin-section" id="adminSection">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Store Administration</h2>
+        <p>Authorized administrators only</p>
+      </div>
+
+      <div class="admin-box" id="loginArea">
+        <h3>Administrator Login</h3>
+        <form onsubmit="login(event)">
+          <div class="form-field">
+            <label for="adminEmail">Email</label>
+            <input type="email" id="adminEmail" required>
+          </div>
+          <div class="form-field">
+            <label for="adminPassword">Password</label>
+            <input type="password" id="adminPassword" required>
+          </div>
+          <p id="loginError" class="error"></p>
+          <button class="btn btn-dark" id="loginButton" type="submit">Login</button>
+        </form>
+      </div>
+
+      <div class="admin-box hidden" id="dashboard">
+        <div class="cart-header">
+          <h3>Admin Dashboard</h3>
+          <button class="btn btn-light" onclick="logout()">Logout</button>
+        </div>
+
+        <h3>Add New Product</h3>
+        <form onsubmit="addProduct(event)">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="productName">Product name</label>
+              <input id="productName" required>
+            </div>
+            <div class="form-field">
+              <label for="productCategory">Category</label>
+              <select id="productCategory" required></select>
+            </div>
+            <div class="form-field">
+              <label for="productPrice">Price (RWF)</label>
+              <input type="number" id="productPrice" min="0" required>
+            </div>
+            <div class="form-field">
+              <label for="productStock">Stock quantity</label>
+              <input type="number" id="productStock" min="0" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="productImage">Product image URL (optional)</label>
+            <input type="url" id="productImage" placeholder="https://...">
+          </div>
+          <div class="form-field">
+            <label for="productDescription">Description</label>
+            <textarea id="productDescription"></textarea>
+          </div>
+          <p id="adminMessage"></p>
+          <button class="btn btn-gold" type="submit">Add Product</button>
+        </form>
+
+        <hr>
+        <h3>Manage Products</h3>
+        <div id="adminProductList"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>BABA'S <span>QUINCALLERIE</span></strong></p>
+  <p>Rugerero, Rubavu, Rwanda</p>
+  <p>© 2026 BABA'S QUINCALLERIE. All rights reserved.</p>
+  <button class="btn btn-light" onclick="openAdmin()">Admin</button>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h2>Your Shopping Cart</h2>
+    <button class="close" onclick="closeCart()">✕</button>
+  </div>
+  <div id="cartItems"></div>
+  <div class="cart-total">Total: <span id="cartTotal">0 RWF</span></div>
+  <button class="btn btn-gold" style="width:100%" onclick="checkout()">Order on WhatsApp</button>
+</aside>
+
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
@@ -654,4 +1070,12 @@ async function start() {
 }
 
 start();
+  window.renderProducts = renderProducts;
+
+document.getElementById('searchInput').addEventListener('input', renderProducts);
+
+document.getElementById('categoryFilter').addEventListener('change', function() {
+  activeCategory = this.value;
+  renderProducts();
+});
 </script>
