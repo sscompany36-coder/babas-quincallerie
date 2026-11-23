@@ -45,11 +45,46 @@ section {padding:55px 5%}
 .section-heading {text-align:center;margin-bottom:30px}
 .section-heading h2 {font-size:30px;color:var(--navy);margin-bottom:9px}
 .section-heading p {color:var(--muted)}
-.categories {display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px}
-.category {background:white;padding:20px 12px;border-radius:10px;text-align:center;border:1px solid #e5e7eb;cursor:pointer;transition:.2s}
-.category:hover,.category.active {border-color:var(--gold);transform:translateY(-3px);box-shadow:0 5px 18px #17243a15}
-.category .emoji {font-size:30px;margin-bottom:10px}
-.category strong {font-size:14px}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 20px;
+}
+
+.category {
+  background: white;
+  padding: 0;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+
+.category:hover,
+.category.active {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #17243a18;
+}
+
+.category-image {
+  width: 100%;
+  height: 145px;
+  display: block;
+  object-fit: cover;
+  background: #edf0f4;
+}
+
+.category strong {
+  display: block;
+  padding: 16px 8px;
+  font-size: 15px;
+  color: var(--navy);
+}
+
 .shop-section {background:#fff}
 .shop-tools {display:flex;gap:12px;flex-wrap:wrap;margin-bottom:25px}
 .shop-tools input,.shop-tools select {padding:12px;border:1px solid #d1d5db;border-radius:7px;min-width:180px;flex:1}
@@ -266,18 +301,19 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 window.supabase = supabase;
 
 const categories = [
-  {id:'Cement',emoji:'🧱',rw:'Sima'},
-  {id:'Steel & Metal',emoji:'🔩',rw:'Ibyuma'},
-  {id:'Roofing',emoji:'🏠',rw:'Ibikoresho byo gusakara'},
-  {id:'Plumbing',emoji:'🚰',rw:'Ibikoresho by’amazi'},
-  {id:'Electrical',emoji:'💡',rw:'Ibikoresho by’amashanyarazi'},
-  {id:'Paint',emoji:'🎨',rw:'Irangi'},
-  {id:'Tiles',emoji:'◻️',rw:'Amatafari yo hasi'},
-  {id:'Tools',emoji:'🔨',rw:'Ibikoresho by’akazi'},
-  {id:'Doors & Windows',emoji:'🚪',rw:'Inzugi n’amadirishya'},
-  {id:'Timber',emoji:'🪵',rw:'Ibiti'},
-  {id:'Sanitary',emoji:'🚿',rw:'Ibikoresho by’ubwiherero'}
+  {id:'Cement',image:'https://loremflickr.com/600/400/cement,construction?lock=11',rw:'Sima'},
+  {id:'Steel & Metal',image:'https://loremflickr.com/600/400/steel,rebar?lock=12',rw:'Ibyuma'},
+  {id:'Roofing',image:'https://loremflickr.com/600/400/roofing,metal?lock=13',rw:'Ibikoresho byo gusakara'},
+  {id:'Plumbing',image:'https://loremflickr.com/600/400/plumbing,pipes?lock=14',rw:'Ibikoresho by’amazi'},
+  {id:'Electrical',image:'https://loremflickr.com/600/400/electrical,wiring?lock=15',rw:'Ibikoresho by’amashanyarazi'},
+  {id:'Paint',image:'https://loremflickr.com/600/400/paint,buckets?lock=16',rw:'Irangi'},
+  {id:'Tiles',image:'https://loremflickr.com/600/400/ceramic,tiles?lock=17',rw:'Amatafari yo hasi'},
+  {id:'Tools',image:'https://loremflickr.com/600/400/construction,tools?lock=18',rw:'Ibikoresho by’akazi'},
+  {id:'Doors & Windows',image:'https://loremflickr.com/600/400/doors,windows?lock=19',rw:'Inzugi n’amadirishya'},
+  {id:'Timber',image:'https://loremflickr.com/600/400/lumber,wood?lock=20',rw:'Ibiti'},
+  {id:'Sanitary',image:'https://loremflickr.com/600/400/bathroom,sanitary?lock=21',rw:'Ibikoresho by’ubwiherero'}
 ];
+
 
 let products = [];
 let cart = JSON.parse(localStorage.getItem('babaCart') || '[]');
@@ -307,7 +343,7 @@ function buildCategories() {
     const name = language === 'rw' ? c.rw : c.id;
     const card = document.createElement('div');
     card.className = 'category' + (activeCategory === c.id ? ' active' : '');
-    card.innerHTML = `<div class="emoji">${c.emoji}</div><strong>${escapeHTML(name)}</strong>`;
+    card.innerHTML = `   <img class="category-image"        src="${c.image}"        alt="${escapeHTML(name)}"        loading="lazy">   <strong>${escapeHTML(name)}</strong> `;
     card.addEventListener('click', () => {
       activeCategory = activeCategory === c.id ? 'all' : c.id;
       filter.value = activeCategory;
@@ -531,6 +567,7 @@ async function verifyAdmin(user) {
   const {data,error} = await supabase
     .from('user_roles')
     .select('role')
+    
     .eq('user_id',user.id)
     .maybeSingle();
 
